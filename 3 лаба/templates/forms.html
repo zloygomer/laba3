@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<h2>Веб-приложение должно изменять контраст картинки по указанному
+значению уровня контраста и показывать результат пользователю, выдавать
+графики распределения цветов исходной и полученной картинки. </h2>
+ <form action="image_form" enctype="multipart/form-data" method="post">
+ <p>
+ Введите уровень контрастности <br>
+ <input name="number_op" type="number" min="0" max="255" value = "0" />
+ </p>
+ <table>
+
+
+ </table>
+ <input name="files" type="file" multiple>
+ <p>
+ <input type="submit" value="Send" />
+ </p>
+ </form>
+{% if ready %}
+<table>
+{% for image in images %}
+<tr>
+ <td>
+ <img src = "{{ image }}">
+  <img src = "static/before.png">
+  <img src = "static/After.png">
+
+ </td>
+</tr>
+
+{% endfor %}
+</table>
+{% endif %}
+</body>
+</html>
